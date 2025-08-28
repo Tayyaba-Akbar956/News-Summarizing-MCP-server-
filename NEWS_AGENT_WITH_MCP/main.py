@@ -2,8 +2,10 @@ from mcp.server.fastmcp import FastMCP
 import requests
 from textblob import TextBlob
 
+load_dotenv(find_dotenv())
+
 mcp = FastMCP("NewsFetcher")
-api_key = "a31b92c3696a4325bacf3dc803fdc06a"
+api_key = os.getenv("NEWS_API_KEY")
 
 @mcp.tool(
         name = "fetch_news",
